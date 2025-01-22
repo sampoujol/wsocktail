@@ -5,6 +5,8 @@ import * as os from 'os';
 import * as readline from 'readline';
 
 
+
+
 /**
  * Lit et envoie  sur le websocket len octets depuis la position startpos du fichier
  * @param ws la websocket ouverte
@@ -45,7 +47,7 @@ function wsSendBuf (ws , options, buffer) {
  * Callback executé à lors de la connection d'un client au websocket
  * @param ws
  */
-function connect(ws){
+export function connect(ws){
 
   // structure de donnees decrivant le fichier à scruter
   var options = {
@@ -86,8 +88,6 @@ function connect(ws){
   });
 }
 
-const wss = new WebSocketServer({ port: 8087 });
-console.log("Serveur Websocket TAIL en attente sur le port 8087");
-wss.on('connection', connect);
+
 
 

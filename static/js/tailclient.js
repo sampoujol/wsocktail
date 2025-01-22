@@ -2,7 +2,7 @@
 
 function connect(){
     var zone=document.getElementsByClassName("termwin")[0];
-    var socket = new WebSocket("ws://localhost:8087");
+    var socket = new WebSocket("ws://localhost:8080");
     socket.onopen=function (event){
         established(event,zone);
     }
