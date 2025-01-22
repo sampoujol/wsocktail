@@ -19,7 +19,7 @@ function connect(){
 }
 
 function established(event,zone){
-    zone.innerText+="Connexion établie";
+    zone.innerText+="[Connexion établie]\n";
 }
 
 function newdata(event,zone){
@@ -27,9 +27,9 @@ function newdata(event,zone){
 }
 
 function srvdiconnect(event,zone){
-    zone.innerText+="Disconnected";
+    zone.innerText+="[Disconnected]\n";
 }
 
 function error(event,zone){
-    zone.innerText+="Erreur";
+    zone.innerText+="[Erreur]\n";
 }

@@ -1,8 +1,7 @@
 
-import { WebSocketServer } from 'ws';
 import * as fs from 'fs';
 import * as os from 'os';
-import * as readline from 'readline';
+
 
 
 
@@ -38,7 +37,7 @@ function wsSendBuf (ws , options, buffer) {
   // Iterate over each line in the buffer.
   buffer.toString().split(options.endOfLineChar).forEach(function (line) {
     // Do stuff with the line :)
-    ws.send(line);
+    ws.send(line+options.endOfLineChar);
   });
 }
 
