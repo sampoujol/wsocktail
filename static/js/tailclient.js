@@ -23,6 +23,7 @@ function established(event,zone){
 }
 
 function newdata(event,zone){
+    console.log("["+event.data+"] reçu");
     zone.innerText+=event.data;
 }
 

@@ -14,7 +14,7 @@ import * as os from 'os';
  * @param len la longueur à lire
  */
 function readNSend(ws, options, startpos, len){
-  console.log("entering readNSend");
+  console.log("entering readNSend, startpos "+startpos+" len "+len);
   // creation d'un tampon pour lire les nouveautés
   var buffer = new Buffer(len);
   var fileDescriptor = fs.openSync(options.logFile, 'r');
@@ -22,24 +22,9 @@ function readNSend(ws, options, startpos, len){
   fs.readSync(fileDescriptor, buffer, 0, len, startpos);
   fs.closeSync(fileDescriptor); // close the file
   console.log("sending");
-  wsSendBuf(ws, options, buffer);
+  ws.send(buffer.toString());
 }
 
-
-/**
- * Envoie ligne par ligne le contenu de buffer sur le websocket ws
- * @param ws
- * @param options
- * @param buffer
- */
-function wsSendBuf (ws , options, buffer) {
-  console.log("entering wsSendBuf");
-  // Iterate over each line in the buffer.
-  buffer.toString().split(options.endOfLineChar).forEach(function (line) {
-    // Do stuff with the line :)
-    ws.send(line+options.endOfLineChar);
-  });
-}
 
 
 /**
